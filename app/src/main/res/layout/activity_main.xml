@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-   <TextView
-       android:id="@+id/lblnum1"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="Num 1:"
-       android:layout_marginLeft="20dp"
-       android:layout_marginTop="40dp"/>
+    <TextView
+        android:id="@+id/lblnum1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Num 1:"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"/>
 
     <TextView
         android:id="@+id/lblnum2"
@@ -31,13 +31,13 @@
         android:layout_marginTop="-30dp"
         android:layout_marginLeft="80dp"/>
 
- <EditText
-     android:id="@+id/txtnum2"
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:layout_below="@+id/txtnum1"
-     android:layout_marginLeft="80dp"
-     android:layout_marginTop="20dp" />
+    <EditText
+        android:id="@+id/txtnum2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtnum1"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="20dp" />
 
     <RadioGroup
         android:id="@+id/optOpciones"
