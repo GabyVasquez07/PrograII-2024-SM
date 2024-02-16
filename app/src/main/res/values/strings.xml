@@ -12,50 +12,67 @@
     </string-array>
     <string-array name="spnAlmacenamiento">
         <item>Bit</item>
-        <item>Bytes</item>
-        <item>Kilobytes</item>
-        <item>Megabytes</item>
-        <item>Gigabytes</item>
-        <item>Terabytes</item>
+        <item>Byte</item>
+        <item>Kilobyte</item>
+        <item>Megabyte</item>
+        <item>Gigabyte</item>
+        <item>Terabyte</item>
+        <item>Petabyte</item>
+        <item>Exabyte</item>
+        <item>Zettabyte</item>
+        <item>Yottabyte</item>
     </string-array>
     <string-array name="spnMonedas">
         <item>Dolar</item>
         <item>Euro</item>
         <item>Peso Mejicano</item>
-        <item>Colon</item>
+        <item>Colon Salvadoreño</item>
     </string-array>
     <string-array name="spnTiempo">
-        <item>Segundo</item>
-        <item>Minuto</item>
-        <item>Hora</item>
-        <item>Dia</item>
-        <item>Semana</item>
-        <item>Año</item>
-        <item>Siglo</item>
+        <item>Microsegundos</item>
+        <item>Milisegundos</item>
+        <item>Segundos</item>
+        <item>Minutos</item>
+        <item>Horas</item>
+        <item>Dias</item>
+        <item>Semanas</item>
+        <item>Meses</item>
+        <item>Años</item>
+        <item>Siglos</item>
     </string-array>
     <string-array name="spnVolumen">
-        <item>Onza</item>
-        <item>Mililitro</item>
-        <item>Litro</item>
+        <item>Litros</item>
+        <item>MiliLitros</item>
+        <item>Centimetro Cubico</item>
+        <item>Metro Cubico</item>
+        <item>Pie Cubico</item>
+        <item>Pulgada Cubica</item>
         <item>Galon</item>
-        <item>Metro cubico</item>
-        <item>Pie cubico</item>
+        <item>Cuarto</item>
+        <item>Pinta</item>
+        <item>Taza</item>
     </string-array>
     <string-array name="spnMasa">
-        <item>Kilogramo</item>
         <item>Gramo</item>
-        <item>Miligramo</item>
-        <item>Tonelada</item>
+        <item>Kilogramo</item>
+        <item>Tonelada Metrica</item>
+        <item>Miligramo </item>
+        <item>Microgramo</item>
         <item>Libra</item>
         <item>Onza</item>
+        <item>Stone</item>
+        <item>Tonelada Larga</item>
     </string-array>
     <string-array name="spnTransferencia">
-        <item>Segundo</item>
-        <item>Minuto</item>
-        <item>Hora</item>
-        <item>Dia</item>
-        <item>Semana</item>
-        <item>Año</item>
+        <item>Bps</item>
+        <item>Kbps</item>
+        <item>Mbps</item>
+        <item>Gbps</item>
+        <item>KBps</item>
+        <item>MBps</item>
+        <item>GBps</item>
+        <item>TBps</item>
+        <item>TBps</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

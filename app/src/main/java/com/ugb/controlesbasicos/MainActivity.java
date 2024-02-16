@@ -17,8 +17,12 @@ public class MainActivity extends AppCompatActivity {
     Spinner spn;
     Button btn;
     conversores miObj = new conversores();
-    tiempo miti = new conversores();
+    tiempo tiem = new tiempo();
     alma miObj2 = new alma();
+    monedas mon = new monedas();
+    masa mas = new masa();
+    volumen vol = new volumen();
+    trans transferencia = new trans();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,37 +44,117 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 spn = findViewById(R.id.spnDeLongitud);
                 int de = spn.getSelectedItemPosition();
-
                 spn = findViewById(R.id.spnALongitud);
                 int a = spn.getSelectedItemPosition();
-
                 tempVal = findViewById(R.id.txtCantidadLongitud);
-                double cantidad= Double.parseDouble(tempVal.getText().toString());
-
-                double resp = miObj.convertir(0, de, a, cantidad);
-
-                Toast.makeText(getApplicationContext(), "Respuesta: "+ resp, Toast.LENGTH_LONG).show();
+                try {
+                    double cantidad = Double.parseDouble(tempVal.getText().toString());
+                    double resp = miObj.convertir(0, de, a, cantidad);
+                    mostrarResultado(resp);
+                } catch (NumberFormatException e) {
+                    mostrarError("Ingresa una cantidad válida.");
+                }
             }
         });
-
+        btn = findViewById(R.id.btnConvertirMon);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                spn = findViewById(R.id.spnDeMon);
+                int de = spn.getSelectedItemPosition();
+                spn = findViewById(R.id.spnAMon);
+                int a = spn.getSelectedItemPosition();
+                tempVal = findViewById(R.id.txtCantidadMon);
+                try {
+                    double cantidad = Double.parseDouble(tempVal.getText().toString());
+                    double resp = mon.convertir2(0, de, a, cantidad);
+                    mostrarResultado(resp);
+                } catch (NumberFormatException e) {
+                    mostrarError("Ingresa una cantidad válida.");
+                }
+            }
+        });
         btn = findViewById(R.id.btnConvertirAlma);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 spn = findViewById(R.id.spnDeAlma);
                 int de = spn.getSelectedItemPosition();
-
                 spn = findViewById(R.id.spnAAlma);
                 int a = spn.getSelectedItemPosition();
-
                 tempVal = findViewById(R.id.txtCantidadAlma);
-                double cantidad= Double.parseDouble(tempVal.getText().toString());
-
-                double resp = miObj2.convertir2(0, de, a, cantidad);
-
-                Toast.makeText(getApplicationContext(), "Respuesta: "+ resp, Toast.LENGTH_LONG).show();
+                try {
+                    double cantidad = Double.parseDouble(tempVal.getText().toString());
+                    double resp = miObj2.convertir2(0, de, a, cantidad);
+                    mostrarResultado(resp);
+                } catch (NumberFormatException e) {
+                    mostrarError("Ingresa una cantidad válida.");
+                }
             }
         });
+        btn = findViewById(R.id.btnConvertirTiem);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                spn = findViewById(R.id.spnDeTiem);
+                int de = spn.getSelectedItemPosition();
+                spn = findViewById(R.id.spnATiem);
+                int a = spn.getSelectedItemPosition();
+                tempVal = findViewById(R.id.txtCantidadTiem);
+                try {
+                    double cantidad = Double.parseDouble(tempVal.getText().toString());
+                    double resp = tiem.convertir2(0, de, a, cantidad);
+                    mostrarResultado(resp);
+                } catch (NumberFormatException e) {
+                    mostrarError("Ingresa una cantidad válida.");
+                }
+            }
+        });
+
+
+        btn = findViewById(R.id.btnConvertirMasa);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                spn = findViewById(R.id.spnDeMasa);
+                int de = spn.getSelectedItemPosition();
+                spn = findViewById(R.id.spnAMasa);
+                int a = spn.getSelectedItemPosition();
+                tempVal = findViewById(R.id.txtCantidadMasa);
+                try {
+                    double cantidad = Double.parseDouble(tempVal.getText().toString());
+                    double resp = mas.convertir2(0, de, a, cantidad);
+                    mostrarResultado(resp);
+                } catch (NumberFormatException e) {
+                    mostrarError("Ingresa una cantidad válida.");
+                }
+            }
+        });
+        btn = findViewById(R.id.btnConvertirTrans);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                spn = findViewById(R.id.spnDeTrans);
+                int de = spn.getSelectedItemPosition();
+                spn = findViewById(R.id.spnATrans);
+                int a = spn.getSelectedItemPosition();
+                tempVal = findViewById(R.id.txtCantidadTrans);
+                try {
+                    double cantidad = Double.parseDouble(tempVal.getText().toString());
+                    double resp = transferencia.convertir2(0, de, a, cantidad);
+                    mostrarResultado(resp);
+                } catch (NumberFormatException e) {
+                    mostrarError("Ingresa una cantidad válida.");
+                }
+            }
+        });
+    }
+    private void mostrarResultado(double resultado) {
+        String mensaje = String.format("Respuesta: %.1f", resultado);
+        Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_LONG).show();
+    }
+    private void mostrarError(String mensaje) {
+        Toast.makeText(getApplicationContext(), "Error: " + mensaje, Toast.LENGTH_LONG).show();
     }
 }
 class conversores{
@@ -83,17 +167,49 @@ class conversores{
 }
 class alma{
     double[][] valores2 = {
-            {1, 8, 8192, 8388608, 1048576, 1073741824}
+            {1,0.001,0.000001,1e-9,1e-12,1e-15,8,0.008,0.000008,8e-9,8e-12,8e-15}
+        };
+    public double convertir2(int opcion, int de, int a, double cantidad){
+        return valores2[opcion][a] / valores2[opcion][de] * cantidad;
+    }
+}
+class monedas{
+    double[][] valores2 = {
+            {1.0, 0.93, 17.19, 8.75}
     };
     public double convertir2(int opcion, int de, int a, double cantidad){
         return valores2[opcion][a] / valores2[opcion][de] * cantidad;
     }
 }
 class tiempo{
-    double[][] valores2 = {
-            {1, 8, 8192, 8388608, 1048576, 1073741824}
+    double[][] valores3 = {
+            {31557600,315576000,31557600,525960,8766,365.25,52.1785,12,1}
     };
     public double convertir2(int opcion, int de, int a, double cantidad){
-        return valores2[opcion][a] / valores2[opcion][de] * cantidad;
+        return valores3[opcion][a] / valores3[opcion][de] * cantidad;
+    }
+}
+class volumen{
+    double[][] valores3 = {
+            {0.001,1,1000,1000000,0.035314666721489, 61.0237440,0.2641720523}
+    };
+    public double convertir2(int opcion, int de, int a, double cantidad){
+        return valores3[opcion][a] / valores3[opcion][de] * cantidad;
+    }
+}
+class masa{
+    double[][] valores3 = {
+            {1,0.001,1e-6,1000,1e+6,0.00220462,0.035274,0.000157473,98421e-7}
+    };
+    public double convertir2(int opcion, int de, int a, double cantidad){
+        return valores3[opcion][a] / valores3[opcion][de] * cantidad;
+    }
+}
+class trans{
+    double[][] valores3 = {
+            {1,1000,100000,1000000,1000000000,1000000000}
+    };
+    public double convertir2(int opcion, int de, int a, double cantidad){
+        return valores3[opcion][a] / valores3[opcion][de] * cantidad;
     }
 }

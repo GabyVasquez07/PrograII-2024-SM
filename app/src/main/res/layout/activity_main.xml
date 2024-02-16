@@ -249,12 +249,6 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/tabVolumen"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"></LinearLayout>
-
-                <LinearLayout
                     android:id="@+id/tabTiempo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -335,7 +329,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="60dp"
                         android:layout_marginTop="60dp"
-                        android:entries="@array/spnTranferencia" />
+                        android:entries="@array/spnTransferencia" />
 
                     <Spinner
                         android:id="@+id/spnATrans"
@@ -343,7 +337,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="60dp"
                         android:layout_marginTop="120dp"
-                        android:entries="@array/spnTranferencia" />
+                        android:entries="@array/spnTransferencia" />
 
                     <EditText
                         android:id="@+id/txtCantidadTrans"
@@ -361,6 +355,7 @@
                         android:layout_marginTop="40dp"
                         android:text="CONVERTIR" />
                 </LinearLayout>
+
             </FrameLayout>
         </LinearLayout>
     </TabHost>
