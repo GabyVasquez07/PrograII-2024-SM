@@ -10,4 +10,53 @@
         <item>Km</item>
         <item>Millas</item>
     </string-array>
+    <string-array name="spnAlmacenamiento">
+        <item>Bit</item>
+        <item>Bytes</item>
+        <item>Kilobytes</item>
+        <item>Megabytes</item>
+        <item>Gigabytes</item>
+        <item>Terabytes</item>
+    </string-array>
+    <string-array name="spnMonedas">
+        <item>Dolar</item>
+        <item>Euro</item>
+        <item>Peso Mejicano</item>
+        <item>Colon</item>
+    </string-array>
+    <string-array name="spnTiempo">
+        <item>Segundo</item>
+        <item>Minuto</item>
+        <item>Hora</item>
+        <item>Dia</item>
+        <item>Semana</item>
+        <item>Año</item>
+        <item>Siglo</item>
+    </string-array>
+    <string-array name="spnVolumen">
+        <item>Onza</item>
+        <item>Mililitro</item>
+        <item>Litro</item>
+        <item>Galon</item>
+        <item>Metro cubico</item>
+        <item>Pie cubico</item>
+    </string-array>
+    <string-array name="spnMasa">
+        <item>Kilogramo</item>
+        <item>Gramo</item>
+        <item>Miligramo</item>
+        <item>Tonelada</item>
+        <item>Libra</item>
+        <item>Onza</item>
+    </string-array>
+    <string-array name="spnTransferencia">
+        <item>Segundo</item>
+        <item>Minuto</item>
+        <item>Hora</item>
+        <item>Dia</item>
+        <item>Semana</item>
+        <item>Año</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
