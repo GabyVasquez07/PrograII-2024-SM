@@ -1,110 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-   <TextView
-       android:id="@+id/lblnum1"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="Num 1:"
-       android:layout_marginLeft="20dp"
-       android:layout_marginTop="40dp"/>
+    <TabHost
+        android:id="@+id/tbhConversores"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/lblnum2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtnum1"
+        <RelativeLayout
+            android:id="@+id/tabLongitud"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+        <TextView
+        android:id="@+id/lblDeLongitud"
+        android:layout_marginTop="60dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="25dp"
-        android:text="Num 2:" />
-
-    <EditText
-        android:id="@+id/txtnum1"
+        android:text="DE:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+         <TextView
+        android:id="@+id/lblALongitud"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="20dp"
+        android:text="A:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Spinner
+        android:id="@+id/spnDeLongitud"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="60dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/lblnum1"
-        android:layout_marginTop="-30dp"
-        android:layout_marginLeft="80dp"/>
-
- <EditText
-     android:id="@+id/txtnum2"
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:layout_below="@+id/txtnum1"
-     android:layout_marginLeft="80dp"
-     android:layout_marginTop="20dp" />
-
-    <RadioGroup
-        android:id="@+id/optOpciones"
-        android:layout_below="@+id/txtnum2"
-        android:layout_width="wrap_content"
+        android:entries="@array/spnLongitud"/>
+    <Spinner
+        android:id="@+id/spnALongitud"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="60dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp">
-        <RadioButton
-            android:id="@+id/optSuma"
-            android:text="SUMA"
-            android:checked="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <RadioButton
-            android:id="@+id/optResta"
-            android:text="RESTA"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <RadioButton
-            android:id="@+id/optMultiplicacion"
-            android:text="MULTIPLICACION"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <RadioButton
-            android:id="@+id/optDivision"
-            android:text="DIVISION"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <RadioButton
-            android:id="@+id/optPorcentaje"
-            android:text="PORCENTAJE"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <RadioButton
-            android:id="@+id/optExponenciacion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="EXPONENCIACION" />
-        <RadioButton
-            android:id="@+id/optFactorial"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="FACTORIAL" />
-        <RadioButton
-            android:id="@+id/optRaiz"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="RAIZ" />
-
-    </RadioGroup>
-
+        android:entries="@array/spnLongitud"/>
+    <EditText
+        android:id="@+id/txtCantidadLongitud"
+        android:layout_below="@+id/spnALongitud"
+        android:layout_marginTop="40dp"
+        android:hint="Cantidad a convertir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <Button
-        android:id="@+id/btnCalcular"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="220dp"
-        android:text="Calcular" />
-
-    <TextView
-        android:id="@+id/lblrespuesta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="300dp"
-        android:text="Respuesta: ?" />
-
-
+        android:id="@+id/btnConvertirLongitud"
+        android:layout_below="@+id/txtCantidadLongitud"
+        android:layout_marginTop="40dp"
+        android:text="CONVERTIR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </RelativeLayout>
+
+<LinearLayout
+android:id="@+id/tabAlmacenamiento"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical">
+</LinearLayout>
+<LinearLayout
+android:id="@+id/tabMonedas"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical">
+</LinearLayout>
+    </FrameLayout>
+    </LinearLayout>
+    </TabHost>
+    </RelativeLayout>
