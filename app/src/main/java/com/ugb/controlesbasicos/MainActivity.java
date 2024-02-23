@@ -41,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
         tbh.addTab(tbh.newTabSpec("AREA").setIndicator("AREAA", null).setContent(R.id.Area));
         tbh.addTab(tbh.newTabSpec("TARI").setIndicator("TARIFA",null).setContent(R.id.Tarifa));
 
+        editTextMetrosConsumidos = findViewById(R.id.editTextMetrosConsumidos);
+        btnCalcular = findViewById(R.id.btnCalcular);
+        tvResultado = findViewById(R.id.tvResultado);
         btn = findViewById(R.id.btnConvertir1);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +65,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnCalcular.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            // Obtener los metros consumidos ingresados por el usuario
+            String metrosConsumidosStr = editTextMetrosConsumidos.getText().toString();
+            if (!metrosConsumidosStr.isEmpty()) {
+                // Convertir la entrada a un número
+                int metrosConsumidos = Integer.parseInt(metrosConsumidosStr);
+                // Calcular el costo total
+                double costoTotal = calcularCostoTotal(metrosConsumidos);
+                // Mostrar el resultado
+                tvResultado.setText("El costo total es: $" + costoTotal);
+            } else {
+                // Manejar el caso en el que el usuario no ingresa nada
+                tvResultado.setText("Por favor ingrese los metros consumidos");
+            }
+        }
+    });
+}
+    private double calcularCostoTotal(int metrosConsumidos) {
+        double costoTotal = 0.0;
+        if (metrosConsumidos >= 1 && metrosConsumidos <= 18) {
+            costoTotal = 6.0;
+        } else if (metrosConsumidos >= 19 && metrosConsumidos <= 28) {
+            costoTotal = 6.0 + (metrosConsumidos - 18) * 0.45;
+        } else if (metrosConsumidos >= 29) {
+            costoTotal = 6.0 + (28 - 18) * 0.45 + (metrosConsumidos - 28) * 0.65;
+        }
+            return costoTotal;
     }
 
     private void mostrarResultado(double resultado) {
