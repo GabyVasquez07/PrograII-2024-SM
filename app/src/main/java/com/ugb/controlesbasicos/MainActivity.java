@@ -27,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
     Spinner spn;
     Button btn;
     Area area = new Area();
+    EditText editTextMetrosConsumidos;
+    Button btnCalcular;
+    TextView tvResultado;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
 class Area {
     double[][] valores =  {
-            {1,10.7639, 1.43097547019, 1.19599,0.0015903307888, 0.0001431, 0.0001}
+            {1,6988, 75218.1332, 10000,  0.0001187, 16, 0.6988}
     };
 
     public double convertir(int opcion, int de, int a, double cantidad) {

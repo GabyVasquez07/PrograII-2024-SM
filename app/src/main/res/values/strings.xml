@@ -1,13 +1,15 @@
 <resources>
     <string name="app_name">Conversores</string>
     <string-array name="spnArea">
+        <item>Manzana</item>
         <item>Metro Cuadrado</item>
         <item>Pie cuadrado</item>
         <item>Vara cuadrada</item>
         <item>Yardar cuadrada</item>
         <item>Tareas</item>
-        <item>Manzana</item>
+
         <item>Hectárea</item>
     </string-array>
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
