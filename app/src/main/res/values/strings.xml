@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Conversores</string>
     <string-array name="spnArea">
+        <item>Metro Cuadrado</item>
         <item>Pie cuadrado</item>
         <item>Vara cuadrada</item>
         <item>Yardar cuadrada</item>
-        <item>Metro Cuadrado</item>
         <item>Tareas</item>
         <item>Manzana</item>
         <item>Hectárea</item>

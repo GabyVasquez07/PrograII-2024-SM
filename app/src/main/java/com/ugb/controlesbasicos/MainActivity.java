@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tempVal;
     Spinner spn;
     Button btn;
+    Area area = new Area();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,10 +50,32 @@ public class MainActivity extends AppCompatActivity {
                 tempVal = findViewById(R.id.txtCantidad1);
                 try {
                     double cantidad = Double.parseDouble(tempVal.getText().toString());
-                    double resp = objConversor.convertir(0, de, a, cantidad);
+                    double resp = area.convertir(0, de, a, cantidad);
                     mostrarResultado(resp);
                 } catch (NumberFormatException e) {
                     mostrarError("Ingresa una cantidad válida.");
                 }
             }
         });
+
+    }
+
+    private void mostrarResultado(double resultado) {
+        String mensaje = String.format("Respuesta: %.1f", resultado);
+        Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_LONG).show();
+    }
+
+    private void mostrarError(String mensaje) {
+        Toast.makeText(getApplicationContext(), "Error: " + mensaje, Toast.LENGTH_LONG).show();
+    }
+}
+
+class Area {
+    double[][] valores =  {
+            {1,10.7639, 1.43097547019, 1.19599,0.0015903307888, 0.0001431, 0.0001}
+    };
+
+    public double convertir(int opcion, int de, int a, double cantidad) {
+        return valores[opcion][a] / valores[opcion][de] * cantidad;
+    }
+}
