@@ -29,34 +29,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tempVal = findViewById(R.id.lblSensorGps);
-        obtenerUbicacion();
-    }
-    private void obtenerUbicacion(){
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
-            tempVal.setText("NO tienes permiso de acceder al GPS");
-            return;
-        } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                requestPermissions(new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION}, 1);
-            }
-        }
-        /*Location location = new Location(LocationManager.GPS_PROVIDER);
-        mostrarUbicacion(location);*/
-        locationListener = new LocationListener() {
+
+        tbh = findViewById(R.id.tbhParcial1);
+        tbh.setup();
+        tbh.addTab(tbh.newTabSpec("AREA").setIndicator("AREAA", null).setContent(R.id.Area));
+        tbh.addTab(tbh.newTabSpec("TARI").setIndicator("TARIFA",null).setContent(R.id.Tarifa));
+
+        btn = findViewById(R.id.btnConvertir1);
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onLocationChanged(@NonNull Location location) {
-                Log.d("LocationUpdate", "Nueva ubicación: " + location.getLatitude() + ", " + location.getLongitude());
-                mostrarUbicacion(location);
+            public void onClick(View view) {
+                spn = findViewById(R.id.spnDeArea);
+                int de = spn.getSelectedItemPosition();
+
+                spn = findViewById(R.id.spnAArea);
+                int a = spn.getSelectedItemPosition();
+
+                tempVal = findViewById(R.id.txtCantidad1);
+                try {
+                    double cantidad = Double.parseDouble(tempVal.getText().toString());
+                    double resp = objConversor.convertir(0, de, a, cantidad);
+                    mostrarResultado(resp);
+                } catch (NumberFormatException e) {
+                    mostrarError("Ingresa una cantidad válida.");
+                }
             }
-        };
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-    }
-    private void mostrarUbicacion(Location location){
-        tempVal.setText("Ubicacion: Altitud: "+ location.getAltitude() +"; Latitud: "+ location.getLatitude() + "; Longitud: "+ location.getLongitude());
-    }
-}
+        });
