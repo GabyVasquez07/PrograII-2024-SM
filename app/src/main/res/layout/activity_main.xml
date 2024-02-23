@@ -6,10 +6,10 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/lblSensorLuz"
-        android:text="Sensor de Luz: ?"
+        android:id="@+id/lblSensorGps"
+        android:text="Sensor de GPS: ?"
         android:layout_marginTop="60dp"
-        android:layout_marginLeft="120dp"
+        android:layout_marginLeft="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/white"
