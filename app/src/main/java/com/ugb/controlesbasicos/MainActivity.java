@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tempVal;
     Button btn;
     String accion = "nuevo";
+    String id = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                     String dui = tempVal.getText().toString();
 
                     DB db = new DB(getApplicationContext(),"", null,1);
-                    String[] datos = new String[]{"", nombre, direccion, telefono, email, dui};
+                    String[] datos = new String[]{id, nombre, direccion, telefono, email, dui};
                     String respuesta = db.administrar_amigos(accion, datos);
                     if(respuesta.equals("ok")){
                         Toast.makeText(getApplicationContext(), "Amigo guardado con exito", Toast.LENGTH_LONG).show();
