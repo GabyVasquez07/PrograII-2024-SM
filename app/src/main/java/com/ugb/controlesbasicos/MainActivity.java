@@ -26,13 +26,10 @@ public class MainActivity extends AppCompatActivity {
     TextView tempVal;
     Spinner spn;
     Button btn;
-    EditText editTextMetrosConsumidos;
-    Button btnCalcular;
-    TextView tvResultado;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        btn = findViewById(R.id.btnGuardarAgendaAmigos);
  }
 }
