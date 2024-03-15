@@ -94,7 +94,7 @@ public class lista_amigos extends AppCompatActivity {
     private void eliminarAmigo(){
         try {
             AlertDialog.Builder confirmar = new AlertDialog.Builder(lista_amigos.this);
-            confirmar.setTitle("Esta seguro de eliinar a: ");
+            confirmar.setTitle("Esta seguro de eliminar a: ");
             confirmar.setMessage(cAmigos.getString(1));
             confirmar.setPositiveButton("SI", new DialogInterface.OnClickListener() {
                 @Override
