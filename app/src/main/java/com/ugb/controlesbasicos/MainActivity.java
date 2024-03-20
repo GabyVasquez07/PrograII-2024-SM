@@ -1,13 +1,21 @@
 package com.ugb.controlesbasicos;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.FileProvider;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -15,12 +23,19 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
     Button btn;
     FloatingActionButton fab;
     TextView tempVal;
     String accion = "nuevo";
     String id="";
+    String urlCompletaFoto;
+    Intent tomarFotoIntent;
+    ImageView img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 abrirActividad();
+            }
+        });
+        img = findViewById(R.id.btnImgAmigo);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tomarFotoAmigo();
             }
         });
         btn = findViewById(R.id.btnGuardarAgendaAmigos);
@@ -54,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                     String dui = tempVal.getText().toString();
 
                     DB db = new DB(getApplicationContext(), "",null, 1);
-                    String[] datos = new String[]{id,nombre,direccion,tel,email,dui};
+                    String[] datos = new String[]{id,nombre,direccion,tel,email,dui, urlCompletaFoto};
                     mostrarMsg(accion);
                     String respuesta = db.administrar_amigos(accion, datos);
                     if(respuesta.equals("ok")){
@@ -68,7 +90,50 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
         mostrarDatosAmigos();
+    }
+    private void tomarFotoAmigo(){
+        tomarFotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        File fotoAmigo = null;
+        try{
+            fotoAmigo = crearImagenAmigo();
+            if( fotoAmigo!=null ){
+                Uri uriFotoamigo = FileProvider.getUriForFile(MainActivity.this,
+                        "com.ugb.controlesbasicos.fileprovider", fotoAmigo);
+                tomarFotoIntent.putExtra(MediaStore.EXTRA_OUTPUT, uriFotoamigo);
+                startActivityForResult(tomarFotoIntent, 1);
+            }else{
+                mostrarMsg("No se pudo creaar la foto");
+            }
+        }catch (Exception e){
+            mostrarMsg("Error al abrir la camara: "+ e.getMessage());
+        }
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        try{
+            if(requestCode==1 && resultCode==RESULT_OK){
+                Bitmap imageBitmap = BitmapFactory.decodeFile(urlCompletaFoto);
+                img.setImageBitmap(imageBitmap);
+            }else{
+                mostrarMsg("El usuario cancelo la toma de la foto");
+            }
+        }catch (Exception e){
+            mostrarMsg("Error añ obtener la foto de la camara");
+        }
+    }
+    private File crearImagenAmigo() throws Exception{
+        String fechaHoraMs = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date()),
+                fileName = "imagen_"+ fechaHoraMs +"_";
+        File dirAlmacenamiento = getExternalFilesDir(Environment.DIRECTORY_DCIM);
+        if( dirAlmacenamiento.exists()==false ){
+            dirAlmacenamiento.mkdirs();
+        }
+        File imagen = File.createTempFile(fileName, ".jpg", dirAlmacenamiento);
+        urlCompletaFoto = imagen.getAbsolutePath();
+        return imagen;
     }
     private void mostrarDatosAmigos(){
         try{
@@ -93,6 +158,10 @@ public class MainActivity extends AppCompatActivity {
 
                 tempVal = findViewById(R.id.txtdui);
                 tempVal.setText(amigos[5]);
+
+                urlCompletaFoto = amigos[6];
+                Bitmap imageBitmap = BitmapFactory.decodeFile(urlCompletaFoto);
+                img.setImageBitmap(imageBitmap);
             }
         }catch (Exception e){
             mostrarMsg("Error al mostrar datos: "+ e.getMessage());
