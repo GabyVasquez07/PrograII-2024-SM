@@ -1,77 +1,77 @@
 package com.ugb.controlesbasicos;
 
 public class amigos {
-    String idAmigo;
-    String nombre;
-    String direccion;
-    String telefono;
-    String email;
-    String dui;
-    String urlFotoAmigo;
+    String idproductos;
+    String codigo;
+    String descripcion;
+    String marca;
+    String presentacion;
+    String precio;
+    String urlFotoProdu;
 
-    public amigos(String idAmigo, String nombre, String direccion, String telefono, String email, String dui, String urlFoto) {
-        this.idAmigo = idAmigo;
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.email = email;
-        this.dui = dui;
-        this.urlFotoAmigo = urlFoto;
+    public amigos(String idproductos, String codigo, String descripcion, String marca, String presentacion, String precio, String urlFoto) {
+        this.idproductos = idproductos;
+        this.codigo = codigo;
+        this.descripcion = descripcion;
+        this.marca = marca;
+        this.presentacion = presentacion;
+        this.precio = precio;
+        this.urlFotoProdu = urlFoto;
     }
 
-    public String getUrlFotoAmigo() {
-        return urlFotoAmigo;
+    public String getUrlFotoProdu() {
+        return urlFotoProdu;
     }
 
-    public void setUrlFotoAmigo(String urlFotoAmigo) {
-        this.urlFotoAmigo = urlFotoAmigo;
+    public void setUrlFotoProdu(String urlFotoProdu) {
+        this.urlFotoProdu = urlFotoProdu;
     }
 
-    public String getIdAmigo() {
-        return idAmigo;
+    public String getIdproductos() {
+        return idproductos;
     }
 
-    public void setIdAmigo(String idAmigo) {
-        this.idAmigo = idAmigo;
+    public void setIdproductos(String idproductos) {
+        this.idproductos = idproductos;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getMarca() {
+        return marca;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPresentacion() {
+        return presentacion;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPresentacion(String presentacion) {
+        this.presentacion = presentacion;
     }
 
-    public String getDui() {
-        return dui;
+    public String getPrecio() {
+        return precio;
     }
 
-    public void setDui(String dui) {
-        this.dui = dui;
+    public void setPrecio(String precio) {
+        this.precio = precio;
     }
 }
