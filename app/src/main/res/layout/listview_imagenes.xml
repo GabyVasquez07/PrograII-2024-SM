@@ -32,12 +32,32 @@
         android:layout_marginLeft="80dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
     <TextView
         android:id="@+id/lblprecio"
-        android:text="Precio"
-        android:textColor="@color/black"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="200dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="40dp"
+        android:text="Precio"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/lblpresentacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="67dp"
+        android:text="Presentacion"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/lblmarca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="10dp"
+        android:text="Marca"
+        android:textColor="@color/black"/>
 </RelativeLayout>
